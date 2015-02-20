@@ -52,6 +52,22 @@ public class TheStack{
 		}
 	}
 	
+	public void pushMany(String multipleValue){
+		
+		String[] temString = multipleValue.split(" ");
+		
+		for(int i = 0; i < temString.length;i++){
+			  push(temString[i]);
+		}
+	}
+	
+	public void popAll(){
+		
+		for(int i= topOfStack ; i>=0;i--){
+			pop();
+		}
+	}
+	
 
 	public static void main(String args[]){
 		
@@ -69,12 +85,23 @@ public class TheStack{
 		
 		
 		
-		System.out.println(tStack.pop());
+		//System.out.println(tStack.pop());
 		
 		for(int i = 0; i <tStack.stackArray.length;i++){
-			System.out.println(tStack.stackArray[i]);
+			System.out.print(tStack.stackArray[i] + " ");
 		}
 		
+		tStack.pushMany("10 11 13 ");System.out.println();
+		
+		for(int i = 0; i <tStack.stackArray.length;i++){
+			System.out.print(tStack.stackArray[i] + " ");
+		}
+		
+		tStack.popAll();System.out.println();
+		
+		for(int i = 0; i <tStack.stackArray.length;i++){
+			System.out.print(tStack.stackArray[i] + " ");
+		}
 	
 	}
 }
