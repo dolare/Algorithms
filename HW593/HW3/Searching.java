@@ -15,7 +15,7 @@ public class Searching {
 	public static int binarySearch(ArrayList<Integer> list,int key,int lower,int higher){
 			
 		  int low = lower;
-	      int high = higher - 1;
+	      int high = higher + 1;
 	      int count = 0;
 	      
 	      while (low <= high) {
@@ -141,7 +141,7 @@ public class Searching {
 		
 		int result = 0;
 		for(int i = 0; i < caseNumber;++i){
-			result = binarySearch(numbers,targetNumber.get(i),countNumber1.get(i),countNumber1.get(i + 1));
+			result = binarySearch(numbers,targetNumber.get(i),countNumber1.get(i),(countNumber1.get(i + 1)-1));
 			if(result != -1 ){
 				System.out.println(targetNumber.get(i) + "  " + result);
 			}else if(result == -1){
