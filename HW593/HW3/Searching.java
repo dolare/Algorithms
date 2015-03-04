@@ -1,4 +1,3 @@
-package test1;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -148,6 +147,8 @@ public class Searching {
 				System.out.println("NOT FOUND " + targetNumber.get(i));
 			}
 		}
+		System.out.println("run with ");
+		System.out.println("java Search <  " + fileAddress);
 
 	}
 	
