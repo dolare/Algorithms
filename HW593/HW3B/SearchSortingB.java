@@ -1,25 +1,19 @@
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Random;
-import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Polygon;
 
-public class SortingB {
+
+public class SearchSortingB {
 	
 	
 	static int numbersOfElements1 = 0;
 	static int numbersOfElements2 = 0;
 	static int numbersOfElements3 = 0;
-	private static Scanner input;
 	
 
 	public static void main(String[] args){
@@ -29,10 +23,18 @@ public class SortingB {
 		numbersOfElements2 = 10000000;
 		numbersOfElements3 = 100000000;
 		
+		ArrayList<Integer> n10_6 = new ArrayList<Integer>();
+		ArrayList<Integer> n10_7 = new ArrayList<Integer>();
+		ArrayList<Integer> n10_8 = new ArrayList<Integer>();
+	
+		
+		
 		System.out.println("Please wait 20s for the Random Array Initial .");
+		System.out.println("The result will be appear by the form of Graph . "
+				+   "And the final result will be calculate after about     s");
 		
 		JFrame jf6 = new JFrame();
-		jf6.setSize(800, 400);
+		jf6.setSize(1100, 400);
 		jf6.setVisible(true);
 		jf6.setLocationRelativeTo(null ); // Center the frame
 		//jf6.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +44,7 @@ public class SortingB {
 		jf6.add(jp6);
 		
 		JFrame jf7 = new JFrame();
-		jf7.setSize(800, 400);
+		jf7.setSize(1100, 400);
 		jf7.setVisible(true);
 		jf7.setLocationRelativeTo(null ); // Center the frame
 		//jf7.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +54,7 @@ public class SortingB {
 		jf7.add(jp7);
 		
 		JFrame jf8 = new JFrame();
-		jf8.setSize(800, 400);
+		jf8.setSize(1100, 400);
 		jf8.setVisible(true);
 		jf8.setLocationRelativeTo(null ); // Center the frame
 		//jf8.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,27 +91,13 @@ public class SortingB {
 			int x82 = 0;
 			int y81 = 0;
 			int y82 = 0;
-		
-		while(true){
 			
+			n10_6.add(0);
+			n10_7.add(0);
+			n10_8.add(0);
 			
-			boolean bl = true;
-			while(bl){
-				try{
-					input = new Scanner (System.in);
-					System.out.println("please enter the key's value you wan to test(you can input 0 to exit the test) :  ");
-					key = Integer.parseInt(input.next());	
-					if(key < 0){
-						throw new Exception();
-					}
-					if(key == 0){
-						System.exit(0);
-					}
-					bl = false;
-				}catch(Exception e){
-					System.out.println("error input,please input again");
-				}
-			}	
+		key = 1;
+		for(;key <= 40;key++){
 				
 			long t1 = System.currentTimeMillis(); 
 			quickAndInertionSort(numbers1,0,numbersOfElements1 - 1,key);
@@ -117,7 +105,8 @@ public class SortingB {
 			System.out.println("When the n = 10^6 ,k = " + key + " ,the run time to sort is for the sanme array(element from 1 to 100000) : " + (t2 - t1) + "ms");
 			x62 = key;
 			y62 = (int)(t2 -t1);
-			jp6.paintLine(30 + 20*x61, 300 - y61/5,30 + 20*x62, 300 - y62/5);
+			n10_6.add(y62);
+			jp6.paintLine(30 + 20*x61, 300 - (int)(y61*1.5),30 + 20*x62, 300 - (int)(y62*1.5));
 			x61 = x62;
 			y61 = y62;
 			
@@ -127,7 +116,8 @@ public class SortingB {
 			System.out.println("When the n = 10^7 ,k = " + key + " ,the run time to sort is for the sanme array(element from 1 to 100000) : " + (t2 - t1) + "ms");
 			x72 = key;
 			y72 = (int)(t2 -t1);
-			jp7.paintLine(30 + 20*x71, 300 - y71/50, 30 + 20*x72, 300 - y72/50);
+			n10_7.add(y72);
+			jp7.paintLine(30 + 20*x71, 300 - (int)(y71*1.5/10), 30 + 20*x72, 300 - (int)(y72*1.5/10));
 			x71 = x72;
 			y71 = y72;
 			
@@ -138,12 +128,50 @@ public class SortingB {
 			System.out.println();
 			x82 = key;
 			y82 = (int)(t2 -t1);
-			jp8.paintLine(30 + 20*x81, 300 - y81/500, 30 + 20*x82, 300 - y82/500);
+			n10_8.add(y82);
+			jp8.paintLine(30 + 20*x81, 300 - y81/100, 30 + 20*x82, 300 - y82/100);
 			x81 = x82;
 			y81 = y82;
-			
-			
+					
 		}
+		
+		System.out.println("The result of 10^6's running time: ");
+		for(int i = 1;i < n10_6.size();i++){
+			
+			System.out.print(n10_6.get(i) + "ms  ");
+			if(i % 10 == 0)
+				System.out.println();
+			
+		}System.out.println();System.out.println();
+			
+		System.out.println("The result of 10^6's running time: ");
+		for(int i = 1;i < n10_7.size();i++){
+			
+			System.out.print(n10_7.get(i) + "ms  ");
+			if(i % 10 == 0)
+				System.out.println();
+			
+		}System.out.println();System.out.println();
+		
+		System.out.println("The result of 10^6's running time: ");
+		for(int i = 1;i < n10_8.size();i++){
+			
+			System.out.print(n10_8.get(i) + "ms  ");
+			if(i % 10 == 0)
+				System.out.println();
+			
+		}System.out.println();System.out.println();
+		
+		double phi = (1 + Math.sqrt(5)) / 2;//1.61
+		double resphi = 2 - phi;//0.38
+		int pivt = (int)(1 + resphi*48);
+		System.out.print(n10_6.get(Golden_mean(n10_6,38,2,pivt)) + "ms  is the minimum runtime when  key is " + Golden_mean(n10_6,38,2,pivt) + " in 10^6 ");
+		
+		System.out.print(n10_7.get(Golden_mean(n10_7,38,2,pivt)) + "ms  is the minimum runtime when  key is " + Golden_mean(n10_7,38,2,pivt) + " in 10^6 ");
+		
+		System.out.print(n10_8.get(Golden_mean(n10_8,38,2,pivt)) + "ms  is the minimum runtime when  key is " + Golden_mean(n10_8,38,2,pivt) + " in 10^6 ");
+		
+		
 	}
 	
 	public static void swap(int[] a,int i,int j){
@@ -199,6 +227,40 @@ public class SortingB {
 	        }		
 	}
 	
+	public static int Golden_mean(ArrayList<Integer> a, int right, int left, int pivt){
+		double phi = (1 + Math.sqrt(5)) / 2;//1.61
+		double resphi = 2 - phi;//0.38
+		//	int pivt = left + resphi*(right - left);
+		int x;
+		if ((right - pivt)>(pivt - left))
+			x = pivt + (int)(resphi*(right - pivt));   //60
+		else
+			x = pivt - (int)(resphi*(pivt - left));
+
+
+
+		if (Math.abs(a.get(x) - a.get(pivt)) <1)
+			return x;
+		
+		else if (a.get(x) < a.get(pivt))
+		{
+			if (right - pivt>pivt - left)
+			{
+				return(Golden_mean(a, right, pivt, x));
+			}
+			else
+				return(Golden_mean(a, pivt, left, x));
+		}
+
+		else{
+			if (right - pivt > pivt - left)
+				return Golden_mean(a, x, left, pivt);
+			else return Golden_mean(a, right,x,pivt);
+		}
+
+	}
+
+	
 }	
 
 
@@ -212,17 +274,17 @@ class MyPanel extends JPanel{
 	public void paint(Graphics g){
 		
 		g.setColor(Color.BLUE);
-		g.drawLine(30, 300, 700, 300);     
+		g.drawLine(30, 300, 1050, 300);     
 		
 	    g.drawLine(30, 300, 30, 30);  
 	      
-	    for(int i = 0;i <= 35;i++){
+	    for(int i = 0;i <= 50;i++){
 	    	g.drawString(Integer.toString(i), (30 + 20*i), 310);
 	    }
-	    g.drawString("n", 700, 300);
+	    g.drawString("n", 1050, 300);
 	     
-	    for(int i = 1;i <= 6;i++){
-	    	g.drawString(Integer.toString(i*m*200), 0, (300 - i*40));
+	    for(int i = 1;i <= 10;i++){
+	    	g.drawString(Integer.toString(i*m*20), 0, (300 - i*30));
 	    }
 	    g.drawString("Time : ms", 30, 30);
 	      
@@ -235,5 +297,6 @@ class MyPanel extends JPanel{
 	     g.drawLine(x1, y1, x2, y2);
 	      
 	}  
+		
 }
 	
