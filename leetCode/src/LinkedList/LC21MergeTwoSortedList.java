@@ -16,6 +16,7 @@ public class LC21MergeTwoSortedList {
 	            l2.next = mergeTwoLists(l2.next, l1);
 	            return l2;
 	        }
+
 	  }
 	 
 	 public static void main(String[] args) {
