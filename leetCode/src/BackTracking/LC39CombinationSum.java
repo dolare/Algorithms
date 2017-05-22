@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class LC39CombinationSum {
     public List<List<Integer>> getCombinationSum(int[] nums,int target){
+        //let me do a quick look
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
         backTrack(list,new ArrayList<>(),nums,target,0);
@@ -16,6 +17,7 @@ public class LC39CombinationSum {
     }
 
     public void backTrack(List<List<Integer>> list, List<Integer> tempList,int[] nums,int remain,int start){
+        //returning conditions
         if(remain < 0){
             return;
         }else if(remain == 0){

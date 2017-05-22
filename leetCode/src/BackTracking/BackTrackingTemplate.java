@@ -1,11 +1,14 @@
+/*
 package BackTracking;
 
 import java.util.LinkedList;
 import java.util.List;
 
+*/
 /**
  * Created by RuiY on 2017/5/18.
- */
+ *//*
+
 public class BackTrackingTemplate {
     public static List<List<Object>> backtrack(int[] A){
         //set up a list  to hold all possible solutions
@@ -38,7 +41,7 @@ public class BackTrackingTemplate {
         }
 
 
-        for(int i = pos, i < A.length;i++){
+        for(int i = pos；i < A.length;i++){
             //before Depth first search,we should decide whether we need to prune searching
             //which means its unnecessary to continue search along a wrong partial solution
             if(!isValid(A[i]))continue;//stop searching along this path
@@ -59,3 +62,4 @@ public class BackTrackingTemplate {
         }
     }
 }
+*/
