@@ -8,6 +8,9 @@ public class TreeNode {
 		this.val = val;
 		// TODO Auto-generated constructor stub
 	}
+
+	public TreeNode(){
+	}
 	
 	public void assignData(){
 		this.val = 1;

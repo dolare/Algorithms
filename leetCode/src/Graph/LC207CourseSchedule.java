@@ -24,27 +24,27 @@ public class LC207CourseSchedule {
 
         Map<Integer,Set<Integer>> graph = new HashMap<>();
 
-        for(int i = 0;i < numCourses;i++){
-            graph.put(i, new HashSet<Integer>());
-        }
-
-        for(int i = 0;i < prerequisites.length;i++){
-            graph.get(prerequisites[i][0]).add(prerequisites[i][1]);
-        }
-
-        Queue<Integer> queue = new LinkedList<>();
-        int courseRemaning = numCourses;
-
-        //find the root of the graph which dont require a prerequisite
-        for(Map.Entry<Integer,Set<Integer>> entry : graph.entrySet()){
-            if(entry.getValue().size() == 0){
-                queue.offer(entry.getKey());
-                courseRemaning--;
+            for(int i = 0;i < numCourses;i++){
+                graph.put(i, new HashSet<Integer>());
             }
-        }
+
+            for(int i = 0;i < prerequisites.length;i++){
+                graph.get(prerequisites[i][0]).add(prerequisites[i][1]);
+            }
+
+            Queue<Integer> queue = new LinkedList<>();
+            int courseRemaning = numCourses;
+
+            //find the root of the graph which dont require a prerequisite
+            for(Map.Entry<Integer,Set<Integer>> entry : graph.entrySet()){
+                if(entry.getValue().size() == 0){
+                    queue.offer(entry.getKey());
+                    courseRemaning--;
+                }
+            }
 
 
-        while(!queue.isEmpty()){
+            while(!queue.isEmpty()){
             int key = queue.poll();
             for(Map.Entry<Integer,Set<Integer>> entry : graph.entrySet()){
                 if(entry.getValue().contains(key)){
