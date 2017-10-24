@@ -1,0 +1,20 @@
+package String;
+
+/**
+ * Created by Dolare on 2017/10/24.
+ * implement strStr() which is same with indexOf
+ */
+public class LC647JudgeRouteCircle {
+    public static boolean judgeCircle(String moves){
+        moves = " " + moves + " ";
+
+        return moves.split("U") == moves.split("D") && moves.split("L") == moves.split("R");
+    }
+
+    public static void main(String[] args){
+        String test1_1 = "UD";
+        String test1_2 = "LL";
+        System.out.print(judgeCircle(test1_1));
+        System.out.print(judgeCircle(test1_2));
+    }
+}

@@ -4,7 +4,7 @@ package BackTracking;
  * Created by RuiY on 2017/5/30.
  */
 public class LC79WordSearch {
-    public static void main(String[] args){
+   /* public static void main(String[] args){
 
     }
     public boolean exist(char[][] board,String word){
@@ -19,5 +19,5 @@ public class LC79WordSearch {
                 backTrack()
             }
         }
-    }
+    }*/
 }

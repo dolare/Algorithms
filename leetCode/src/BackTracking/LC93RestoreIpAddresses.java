@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class LC93RestoreIpAddresses {
     public static void main(String[] args){
-        new LC93RestoreIpAddresses()
+        new LC93RestoreIpAddresses();
     }
 
     public List<String> restoreIpAddresses(String s) {
