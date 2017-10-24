@@ -8,7 +8,7 @@ public class LC647JudgeRouteCircle {
     public static boolean judgeCircle(String moves){
         moves = " " + moves + " ";
 
-        return moves.split("U") == moves.split("D") && moves.split("L") == moves.split("R");
+        return moves.split("U").length == moves.split("D").length && moves.split("L").length == moves.split("R").length;
     }
 
     public static void main(String[] args){
